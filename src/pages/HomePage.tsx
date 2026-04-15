@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -14,7 +15,9 @@ export default function HomePage() {
             Elevate your language proficiency to new heights by connecting with
             highly qualified and experienced tutors.
           </p>
-          <button className="get-started-btn">Get started</button>
+          <Link to="/teachers" className="get-started-btn">
+            Get started
+          </Link>
         </div>
         <div className="hero-right">
           <img src="/hero.webp" alt="Language tutor" />
