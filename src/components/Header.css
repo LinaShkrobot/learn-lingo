@@ -1,0 +1,59 @@
+.header {
+  max-width: 1230px;
+  margin: 4px auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 390px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 125%;
+}
+
+.register-btn {
+  background: #121417;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 39px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 125%;
+}
