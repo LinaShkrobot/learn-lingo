@@ -1,0 +1,75 @@
+.auth-form h2 {
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.auth-form p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 138%;
+  color: rgba(18, 20, 23, 0.8);
+  margin-bottom: 40px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.auth-form input {
+  width: 100%;
+  height: 54px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 138%;
+}
+
+.auth-form input::placeholder {
+  color: #121417;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 100%;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+}
+
+.auth-form .error {
+  color: red;
+  font-size: 12px;
+  margin-top: -14px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.auth-form button[type="submit"] {
+  width: 100%;
+  height: 60px;
+  background: #f4c550;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  cursor: pointer;
+}
