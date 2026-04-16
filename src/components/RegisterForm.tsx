@@ -36,8 +36,7 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
       await registerUser(data.email, data.password);
       onClose();
     } catch (error) {
-      // alert("Registration failed. Try again.");
-      alert((error as any).message);
+      alert("Registration failed. Try again.");
     }
   };
 
