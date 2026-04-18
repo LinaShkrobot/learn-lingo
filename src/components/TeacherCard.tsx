@@ -44,7 +44,12 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
       <div className="teacher-info">
         <div className="teacher-top">
           <span className="teacher-label">Languages</span>
-          <span className="teacher-detail">Lessons online</span>
+          <span className="teacher-detail">
+            <svg className="icon-book" width="16" height="16">
+              <use href="/sprite.svg#icon-book" />
+            </svg>
+            Lessons online
+          </span>
           <span className="teacher-detail">
             Lessons done: {teacher.lessons_done}
           </span>
