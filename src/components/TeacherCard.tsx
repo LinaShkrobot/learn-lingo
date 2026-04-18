@@ -71,7 +71,9 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
             src={teacher.avatar_url}
             alt={`${teacher.name} ${teacher.surname}`}
           />
-          <span className="online-dot"></span>
+          <svg className="online-dot" width="12" height="12">
+            <use href="/sprite.svg#icon-online" />
+          </svg>
         </div>
       </div>
       <div className="teacher-info">

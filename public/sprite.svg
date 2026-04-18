@@ -75,4 +75,7 @@
   10.9868 1.33325 10.6134 1.33325 9.86667V4.13333Z" stroke="black" stroke-width="1.5" stroke-linecap="round"
   stroke-linejoin="round"/>
   </symbol>
+  <symbol id="icon-online" viewBox="0 0 8 8">
+    <circle cx="4" cy="4" r="4" fill="#38CD3E"/>
+  </symbol>
 </svg>
