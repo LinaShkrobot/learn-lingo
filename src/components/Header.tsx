@@ -22,6 +22,7 @@ export default function Header() {
         <nav className="nav">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/teachers">Teachers</NavLink>
+          {user && <NavLink to="/favorites">Favorites</NavLink>}
         </nav>
       </div>
       <div className="auth">

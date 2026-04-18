@@ -1,3 +1,57 @@
+import { useState, useEffect } from "react";
+import { ref, get, child } from "firebase/database";
+import { db } from "../firebase/config";
+import { useAuth } from "../context/AuthContext";
+import TeacherCard from "../components/TeacherCard";
+import "./TeachersPage.css";
+
 export default function FavoritesPage() {
-  return <h1>Favorites</h1>
+  const { user } = useAuth();
+  const [favorites, setFavorites] = useState<any[]>([]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const favoriteIds = JSON.parse(
+      localStorage.getItem(`favorites_${user.uid}`) || "[]",
+    );
+
+    if (favoriteIds.length === 0) return;
+
+    const fetchFavorites = async () => {
+      const dbRef = ref(db);
+      const snapshot = await get(child(dbRef, "/"));
+      const data = snapshot.val();
+      console.log("data:", data);
+      console.log("favoriteIds:", favoriteIds);
+
+      if (data) {
+        const allTeachers = Object.entries(data).map(
+          ([key, value]: [string, any]) => ({ id: key, ...value }),
+        );
+        const filtered = allTeachers.filter((t) => favoriteIds.includes(t.id));
+        setFavorites(filtered);
+      }
+    };
+
+    fetchFavorites();
+  }, [user]);
+
+  return (
+    <div className="teachers-page">
+      <div className="teachers-container">
+        {favorites.length === 0 ? (
+          <p>No favorite teachers yet.</p>
+        ) : (
+          <ul className="teachers-list">
+            {favorites.map((teacher) => (
+              <li key={teacher.id}>
+                <TeacherCard teacher={teacher} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
 }
