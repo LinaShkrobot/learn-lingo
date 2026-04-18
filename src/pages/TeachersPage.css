@@ -1,7 +1,9 @@
 .teachers-container {
   max-width: 1312px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 96px 128px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
 }
 
 .teachers-list {
@@ -19,4 +21,53 @@
   font-weight: 700;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.teacher-experience {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 0 0 32px;
+}
+
+.teacher-reviews {
+  margin-top: 32px;
+}
+
+.review-item {
+  margin-bottom: 32px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.reviewer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.reviewer-name {
+  font-weight: 500;
+  font-size: 16px;
+  color: #8a8a89;
+}
+
+.reviewer-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.review-comment {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 0;
 }

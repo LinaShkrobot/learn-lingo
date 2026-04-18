@@ -33,10 +33,13 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
   return (
     <div className="teacher-card">
       <div className="teacher-avatar">
-        <img
-          src={teacher.avatar_url}
-          alt={`${teacher.name} ${teacher.surname}`}
-        />
+        <div className="avatar-wrapper">
+          <img
+            src={teacher.avatar_url}
+            alt={`${teacher.name} ${teacher.surname}`}
+          />
+          <span className="online-dot"></span>
+        </div>
       </div>
       <div className="teacher-info">
         <div className="teacher-top">
@@ -45,10 +48,21 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
           <span className="teacher-detail">
             Lessons done: {teacher.lessons_done}
           </span>
-          <span className="teacher-detail">Rating: {teacher.rating}</span>
-          <span className="teacher-price">
-            Price / 1 hour: {teacher.price_per_hour}$
+          <span className="teacher-detail">
+            <svg className="icon-star" width="15" height="14">
+              <use href="/sprite.svg#icon-star" />
+            </svg>
+            Rating: {teacher.rating}
           </span>
+          <span className="teacher-price">
+            Price / 1 hour:{" "}
+            <span className="price-value">{teacher.price_per_hour}$</span>
+          </span>
+          <button className="heart-btn">
+            <svg width="26" height="26">
+              <use href="/sprite.svg#icon-heart" />
+            </svg>
+          </button>
         </div>
         <h2 className="teacher-name">
           {teacher.name} {teacher.surname}
@@ -61,7 +75,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
         </p>
         <p className="teacher-field">
           <span className="field-label">Lesson Info:</span>
-          <span className="field-value">{teacher.lesson_info}</span>
+          <span className="field-value faded">{teacher.lesson_info}</span>
         </p>
         <p className="teacher-field">
           <span className="field-label">Conditions:</span>
@@ -81,15 +95,20 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
               {teacher.reviews.map((review, i) => (
                 <li key={i} className="review-item">
                   <div className="review-header">
-                    <span className="reviewer-name">
-                      {review.reviewer_name}
-                    </span>
-                    <span className="reviewer-rating">
-                      <svg width="15" height="14">
-                        <use href="/sprite.svg#icon-star" />
-                      </svg>{" "}
-                      {review.reviewer_rating}
-                    </span>
+                    <div className="reviewer-avatar">
+                      {review.reviewer_name.charAt(0)}
+                    </div>
+                    <div className="reviewer-info">
+                      <span className="reviewer-name">
+                        {review.reviewer_name}
+                      </span>
+                      <span className="reviewer-rating">
+                        <svg className="icon-star" width="16" height="16">
+                          <use href="/sprite.svg#icon-star" />
+                        </svg>
+                        {review.reviewer_rating}
+                      </span>
+                    </div>
                   </div>
                   <p className="review-comment">{review.comment}</p>
                 </li>
@@ -101,10 +120,11 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
         <ul className="teacher-levels">
           {teacher.levels.map((level, i) => (
             <li key={i} className="level-badge">
-              {level}
+              #{level}
             </li>
           ))}
         </ul>
+        <button className="book-btn">Book trial lesson</button>
       </div>
     </div>
   );
