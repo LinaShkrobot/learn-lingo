@@ -218,3 +218,12 @@
   margin-right: 4px;
   margin-top: -2px;
 }
+
+.heart-btn svg {
+  fill: none;
+}
+
+.heart-btn.active svg {
+  color: #f4c550;
+  fill: #f4c550;
+}

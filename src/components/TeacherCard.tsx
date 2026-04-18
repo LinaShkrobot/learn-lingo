@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useState, useEffect } from "react";
 import "./TeacherCard.css";
 
 interface Review {
@@ -29,6 +30,38 @@ interface TeacherCardProps {
 
 export default function TeacherCard({ teacher }: TeacherCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const { user } = useAuth();
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      const favorites = JSON.parse(
+        localStorage.getItem(`favorites_${user.uid}`) || "[]",
+      );
+      setIsFavorite(favorites.includes(teacher.id));
+    }
+  }, [user, teacher.id]);
+
+  const handleFavorite = () => {
+    if (!user) {
+      alert("This feature is available only for authorized users!");
+      return;
+    }
+
+    const favorites = JSON.parse(
+      localStorage.getItem(`favorites_${user.uid}`) || "[]",
+    );
+
+    if (isFavorite) {
+      const updated = favorites.filter((id: string) => id !== teacher.id);
+      localStorage.setItem(`favorites_${user.uid}`, JSON.stringify(updated));
+      setIsFavorite(false);
+    } else {
+      favorites.push(teacher.id);
+      localStorage.setItem(`favorites_${user.uid}`, JSON.stringify(favorites));
+      setIsFavorite(true);
+    }
+  };
 
   return (
     <div className="teacher-card">
@@ -63,7 +96,10 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
             Price / 1 hour:{" "}
             <span className="price-value">{teacher.price_per_hour}$</span>
           </span>
-          <button className="heart-btn">
+          <button
+            className={`heart-btn ${isFavorite ? "active" : ""}`}
+            onClick={handleFavorite}
+          >
             <svg width="26" height="26">
               <use href="/sprite.svg#icon-heart" />
             </svg>
