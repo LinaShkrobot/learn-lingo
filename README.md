@@ -1,7 +1,6 @@
 # LearnLingo
 
-An online platform for finding and booking language tutors. Users can browse teacher profiles, filter by
-language, level, and price, save favorites, and book trial lessons.
+An online platform for finding and booking language tutors. Users can browse teacher profiles, filter by language, level, and price, save favorites, and book trial lessons.
 
 ## Technologies
 
