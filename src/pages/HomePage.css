@@ -66,6 +66,11 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 156%;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #ffdc86;
 }
 
 .stats {
