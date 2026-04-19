@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import toast from "react-hot-toast";
+import Button from "./Button";
 import "./BookingForm.css";
 
 interface BookingFormProps {
@@ -97,10 +98,9 @@ export default function BookingForm({
         className="booking-input"
       />
       {errors.phone && <span className="error">{errors.phone.message}</span>}
-
-      <button type="submit" className="booking-submit">
+      <Button type="submit" fullWidth>
         Book
-      </button>
+      </Button>
     </form>
   );
 }

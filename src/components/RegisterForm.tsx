@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import Button from "./Button";
 import "./AuthForm.css";
 
 const schema = yup.object({
@@ -76,7 +77,9 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
           <span className="error">{errors.password.message}</span>
         )}
       </div>
-      <button type="submit">Sign Up</button>
+      <Button type="submit" fullWidth>
+        Sign Up
+      </Button>
     </form>
   );
 }

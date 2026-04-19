@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Modal from "./Modal";
 import BookingForm from "./BookingForm";
+import Button from "./Button";
 import "./TeacherCard.css";
 
 interface Review {
@@ -171,9 +172,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
             </li>
           ))}
         </ul>
-        <button className="book-btn" onClick={() => setShowBooking(true)}>
-          Book trial lesson
-        </button>
+        <Button onClick={() => setShowBooking(true)}>Book trial lesson</Button>
       </div>
       {showBooking && (
         <Modal onClose={() => setShowBooking(false)}>

@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import Button from "./Button";
 import "./AuthForm.css";
 
 const schema = yup.object({
@@ -69,7 +70,9 @@ export default function LoginForm({ onClose }: LoginFormProps) {
           <span className="error">{errors.password.message}</span>
         )}
       </div>
-      <button type="submit">Log In</button>
+      <Button type="submit" fullWidth>
+        Log In
+      </Button>
     </form>
   );
 }

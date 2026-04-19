@@ -188,17 +188,6 @@
   gap: 8px;
 }
 
-.book-btn {
-  background-color: #f4c550;
-  border: none;
-  border-radius: 12px;
-  padding: 16px 48px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 156%;
-  margin-top: 32px;
-}
-
 .teacher-info {
   flex: 1;
   position: relative;
@@ -225,4 +214,8 @@
 .heart-btn.active svg {
   color: #f4c550;
   fill: #f4c550;
+}
+
+.teacher-info > .btn {
+  margin-top: 32px;
 }

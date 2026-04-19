@@ -12,17 +12,6 @@
   gap: 32px;
 }
 
-.load-more {
-  display: block;
-  margin: 64px auto 0;
-  background: none;
-  border: none;
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .teacher-experience {
   font-weight: 400;
   font-size: 16px;
@@ -30,57 +19,7 @@
   margin: 0 0 32px;
 }
 
-.teacher-reviews {
-  margin-top: 32px;
-}
-
-.review-item {
-  margin-bottom: 32px;
-}
-
-.review-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.reviewer-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-}
-
-.reviewer-name {
-  font-weight: 500;
-  font-size: 16px;
-  color: #8a8a89;
-}
-
-.reviewer-rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.review-comment {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 150%;
-  margin: 0;
-}
-
 .load-more {
   display: block;
   margin: 64px auto 0;
-  background: #f4c550;
-  border: none;
-  border-radius: 12px;
-  padding: 16px 48px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 156%;
-  cursor: pointer;
 }

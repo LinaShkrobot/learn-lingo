@@ -10,6 +10,7 @@ import {
 import { db } from "../firebase/config";
 import TeacherCard from "../components/TeacherCard";
 import Filters from "../components/Filters";
+import Button from "../components/Button";
 import "./TeachersPage.css";
 
 const PAGE_SIZE = 4;
@@ -111,9 +112,9 @@ export default function TeachersPage() {
           ))}
         </ul>
         {hasMore && (
-          <button className="load-more" onClick={fetchTeachers}>
+          <Button onClick={fetchTeachers} className="load-more">
             Load more
-          </button>
+          </Button>
         )}
       </div>
     </div>
