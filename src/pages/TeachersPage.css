@@ -71,3 +71,16 @@
   line-height: 150%;
   margin: 0;
 }
+
+.load-more {
+  display: block;
+  margin: 64px auto 0;
+  background: #f4c550;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 48px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  cursor: pointer;
+}

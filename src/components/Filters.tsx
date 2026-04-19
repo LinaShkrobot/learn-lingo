@@ -25,10 +25,6 @@ export default function Filters({ onFilter }: FiltersProps) {
 
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  useEffect(() => {
-    onFilter({ language, level, price });
-  }, []);
-
   const handleSelect = (field: string, value: string) => {
     if (field === "language") {
       setLanguage(value);

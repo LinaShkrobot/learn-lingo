@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { useState } from "react";
 import "./AuthForm.css";
 
 const schema = yup.object({
@@ -27,6 +28,8 @@ export default function LoginForm({ onClose }: LoginFormProps) {
     resolver: yupResolver(schema),
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const onSubmit = async (data: { email: string; password: string }) => {
     try {
       await loginUser(data.email, data.password);
@@ -49,10 +52,14 @@ export default function LoginForm({ onClose }: LoginFormProps) {
         <div className="password-field">
           <input
             {...register("password")}
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
           />
-          <button type="button" className="eye-btn">
+          <button
+            type="button"
+            className="eye-btn"
+            onClick={() => setShowPassword(!showPassword)}
+          >
             <svg width="20" height="20">
               <use href="/sprite.svg#icon-eye-off" />
             </svg>

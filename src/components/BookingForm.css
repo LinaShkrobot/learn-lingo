@@ -1,0 +1,113 @@
+.booking-form h2 {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+
+.booking-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 138%;
+  color: rgba(18, 20, 23, 0.8);
+  margin: 0 0 20px;
+}
+
+.booking-teacher {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.booking-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+}
+
+.booking-label {
+  display: block;
+  font-size: 12px;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+
+.booking-name {
+  display: block;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.booking-question {
+  font-size: 24px;
+  line-height: 133%;
+  margin: 0 0 20px;
+}
+
+.booking-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.reason-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  line-height: 138%;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.reason-label input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 2px solid rgba(18, 20, 23, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.reason-label input[type="radio"]:checked {
+  border: 2px solid #f4c550;
+  background-color: #f4c550;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.booking-input {
+  width: 100%;
+  height: 54px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 0 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  margin-bottom: 18px;
+}
+
+.booking-input::placeholder {
+  color: #121417;
+}
+
+.booking-submit {
+  width: 100%;
+  height: 60px;
+  background: #f4c550;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.booking-form .error {
+  color: red;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 8px;
+  display: block;
+}

@@ -1,6 +1,8 @@
 import { useAuth } from "../context/AuthContext";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
+import Modal from "./Modal";
+import BookingForm from "./BookingForm";
 import "./TeacherCard.css";
 
 interface Review {
@@ -33,6 +35,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
   const [expanded, setExpanded] = useState(false);
   const { user } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showBooking, setShowBooking] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -168,8 +171,19 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
             </li>
           ))}
         </ul>
-        <button className="book-btn">Book trial lesson</button>
+        <button className="book-btn" onClick={() => setShowBooking(true)}>
+          Book trial lesson
+        </button>
       </div>
+      {showBooking && (
+        <Modal onClose={() => setShowBooking(false)}>
+          <BookingForm
+            teacherName={`${teacher.name} ${teacher.surname}`}
+            teacherAvatar={teacher.avatar_url}
+            onClose={() => setShowBooking(false)}
+          />
+        </Modal>
+      )}
     </div>
   );
 }
