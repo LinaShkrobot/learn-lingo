@@ -1,6 +1,7 @@
-.container {
+.home-page {
   max-width: 1312px;
   margin: 0 auto;
+  padding-bottom: 32px;
 }
 
 .hero {

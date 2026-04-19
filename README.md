@@ -1,16 +1,35 @@
-# React + Vite
+# LearnLingo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online platform for finding and booking language tutors. Users can browse teacher profiles, filter by
+language, level, and price, save favorites, and book trial lessons.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript
+- Vite
+- Firebase (Authentication + Realtime Database)
+- React Router
+- React Hook Form + Yup
+- React Hot Toast
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User registration and login (Firebase Auth)
+- Browse teachers with pagination (Load more)
+- Filter teachers by language, level of knowledge, and price
+- Add/remove teachers to favorites (localStorage)
+- Private Favorites page for authorized users
+- Book trial lesson with form validation
+- Responsive modal windows (close by button, backdrop, or Esc)
 
-## Expanding the ESLint configuration
+## Design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [Figma Mockup](https://www.figma.com/design/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?node-id=0-1&p=f&t=hEbuALgBWeRUHsxy-0)
+
+## Technical Requirements
+
+- [ТЗ](https://docs.google.com/document/d/1ZB_MFgnnJj7t7OXtv5hESSwY6xRgVoACZKzgZczWc3Y/edit?tab=t.0)
+
+## Live Demo
+
+- [Demo](посилання додається після деплою)
