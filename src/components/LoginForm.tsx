@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 import "./AuthForm.css";
 
 const schema = yup.object({
@@ -31,7 +32,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
       await loginUser(data.email, data.password);
       onClose();
     } catch (error) {
-      alert("Login failed. Check your email and password.");
+      toast.error("Login failed. Check your email and password.");
     }
   };
 

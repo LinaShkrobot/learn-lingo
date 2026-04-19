@@ -1,5 +1,6 @@
 import { useAuth } from "../context/AuthContext";
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import "./TeacherCard.css";
 
 interface Review {
@@ -44,7 +45,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
 
   const handleFavorite = () => {
     if (!user) {
-      alert("This feature is available only for authorized users!");
+      toast.error("This feature is available only for authorized users!");
       return;
     }
 

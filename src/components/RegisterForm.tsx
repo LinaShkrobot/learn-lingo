@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 import "./AuthForm.css";
 
 const schema = yup.object({
@@ -36,7 +37,7 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
       await registerUser(data.email, data.password);
       onClose();
     } catch (error) {
-      alert("Registration failed. Try again.");
+      toast.error("Registration failed. Try again.");
     }
   };
 
