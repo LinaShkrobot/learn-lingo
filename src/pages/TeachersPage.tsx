@@ -9,6 +9,7 @@ import {
 } from "firebase/database";
 import { db } from "../firebase/config";
 import TeacherCard from "../components/TeacherCard";
+import Filters from "../components/Filters";
 import "./TeachersPage.css";
 
 const PAGE_SIZE = 4;
@@ -17,6 +18,11 @@ export default function TeachersPage() {
   const [teachers, setTeachers] = useState<any[]>([]);
   const [lastKey, setLastKey] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(true);
+  const [filters, setFilters] = useState({
+    language: "",
+    level: "",
+    price: "",
+  });
 
   const fetchTeachers = async () => {
     let teachersQuery;
@@ -84,20 +90,32 @@ export default function TeachersPage() {
     loadInitial();
   }, []);
 
+  const filteredTeachers = teachers.filter((teacher) => {
+    if (filters.language && !teacher.languages.includes(filters.language))
+      return false;
+    if (filters.level && !teacher.levels.includes(filters.level)) return false;
+    if (filters.price && teacher.price_per_hour > Number(filters.price))
+      return false;
+    return true;
+  });
+
   return (
-    <div className="teachers-container">
-      <ul className="teachers-list">
-        {teachers.map((teacher) => (
-          <li key={teacher.id}>
-            <TeacherCard teacher={teacher} />
-          </li>
-        ))}
-      </ul>
-      {hasMore && (
-        <button className="load-more" onClick={fetchTeachers}>
-          Load more
-        </button>
-      )}
+    <div className="teachers-page">
+      <div className="teachers-container">
+        <Filters onFilter={setFilters} />
+        <ul className="teachers-list">
+          {filteredTeachers.map((teacher) => (
+            <li key={teacher.id}>
+              <TeacherCard teacher={teacher} />
+            </li>
+          ))}
+        </ul>
+        {hasMore && (
+          <button className="load-more" onClick={fetchTeachers}>
+            Load more
+          </button>
+        )}
+      </div>
     </div>
   );
 }
