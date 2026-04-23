@@ -8,7 +8,6 @@ import "./TeachersPage.css";
 export default function FavoritesPage() {
   const { user } = useAuth();
   const [favorites, setFavorites] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user) return;
@@ -17,10 +16,7 @@ export default function FavoritesPage() {
       localStorage.getItem(`favorites_${user.uid}`) || "[]",
     );
 
-    if (favoriteIds.length === 0) {
-      setLoading(false);
-      return;
-    }
+    if (favoriteIds.length === 0) return;
 
     const fetchFavorites = async () => {
       const dbRef = ref(db);
@@ -34,7 +30,6 @@ export default function FavoritesPage() {
         const filtered = allTeachers.filter((t) => favoriteIds.includes(t.id));
         setFavorites(filtered);
       }
-      setLoading(false);
     };
 
     fetchFavorites();
@@ -43,10 +38,10 @@ export default function FavoritesPage() {
   return (
     <div className="teachers-page">
       <div className="teachers-container">
-        {loading ? (
-          <p style={{ textAlign: "center", padding: "50px" }}>Loading...</p>
-        ) : favorites.length === 0 ? (
-          <p style={{ textAlign: "center", padding: "50px" }}>No favorite teachers yet.</p>
+        {favorites.length === 0 ? (
+          <p style={{ textAlign: "center", padding: "50px" }}>
+            No favorite teachers yet.
+          </p>
         ) : (
           <ul className="teachers-list">
             {favorites.map((teacher) => (
