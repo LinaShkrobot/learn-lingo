@@ -8,6 +8,7 @@ import "./TeachersPage.css";
 export default function FavoritesPage() {
   const { user } = useAuth();
   const [favorites, setFavorites] = useState<any[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (!user) return;
@@ -16,7 +17,10 @@ export default function FavoritesPage() {
       localStorage.getItem(`favorites_${user.uid}`) || "[]",
     );
 
-    if (favoriteIds.length === 0) return;
+    if (favoriteIds.length === 0) {
+      setLoaded(true);
+      return;
+    }
 
     const fetchFavorites = async () => {
       const dbRef = ref(db);
@@ -30,10 +34,13 @@ export default function FavoritesPage() {
         const filtered = allTeachers.filter((t) => favoriteIds.includes(t.id));
         setFavorites(filtered);
       }
+      setLoaded(true);
     };
 
     fetchFavorites();
   }, [user]);
+
+  if (!loaded) return null;
 
   return (
     <div className="teachers-page">
