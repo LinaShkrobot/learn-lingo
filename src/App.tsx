@@ -10,7 +10,10 @@ import { Toaster } from "react-hot-toast";
 export default function App() {
   const { loading } = useAuth();
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div style={{ textAlign: "center", padding: "100px" }}>Loading...</div>
+    );
 
   return (
     <BrowserRouter>
