@@ -44,9 +44,9 @@ export default function FavoritesPage() {
     <div className="teachers-page">
       <div className="teachers-container">
         {loading ? (
-          <p>Loading...</p>
+          <p style={{ textAlign: "center", padding: "50px" }}>Loading...</p>
         ) : favorites.length === 0 ? (
-          <p>No favorite teachers yet.</p>
+          <p style={{ textAlign: "center", padding: "50px" }}>No favorite teachers yet.</p>
         ) : (
           <ul className="teachers-list">
             {favorites.map((teacher) => (
