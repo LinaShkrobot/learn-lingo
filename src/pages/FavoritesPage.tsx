@@ -40,7 +40,10 @@ export default function FavoritesPage() {
     fetchFavorites();
   }, [user]);
 
-  if (!loaded) return null;
+  if (!loaded)
+    return (
+      <div style={{ textAlign: "center", padding: "100px" }}>Loading...</div>
+    );
 
   return (
     <div className="teachers-page">

@@ -31,4 +31,4 @@ An online platform for finding and booking language tutors. Users can browse tea
 
 ## Live Demo
 
-- [Demo](посилання додається після деплою)
+[Demo](https://learn-lingo-eight-theta.vercel.app/)

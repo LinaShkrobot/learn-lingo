@@ -24,6 +24,7 @@ export default function TeachersPage() {
     level: "",
     price: "",
   });
+  const [loaded, setLoaded] = useState(false);
 
   const fetchTeachers = async () => {
     let teachersQuery;
@@ -88,7 +89,7 @@ export default function TeachersPage() {
       }
     };
 
-    loadInitial();
+    loadInitial().finally(() => setLoaded(true));
   }, []);
 
   const filteredTeachers = teachers.filter((teacher) => {
@@ -99,6 +100,11 @@ export default function TeachersPage() {
       return false;
     return true;
   });
+
+  if (!loaded)
+    return (
+      <div style={{ textAlign: "center", padding: "100px" }}>Loading...</div>
+    );
 
   return (
     <div className="teachers-page">
